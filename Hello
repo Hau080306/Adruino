@@ -1,0 +1,44 @@
+Dưới đây là mã kiểm tra động cơ trái và phải để đảm bảo rằng cả hai động cơ đều hoạt động bình thường:
+
+const int In1 = 2;
+const int In2 = 3;
+const int In3 = 4;
+const int In4 = 5;
+const int EnA = 6;
+const int EnB = 7;
+
+void setup() {
+pinMode(In1, OUTPUT);
+pinMode(In2, OUTPUT);
+pinMode(In3, OUTPUT);
+pinMode(In4, OUTPUT);
+pinMode(EnA, OUTPUT);
+pinMode(EnB, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+// Kiểm tra động cơ trái
+Serial.println("Kiểm tra động cơ trái");
+digitalWrite(In1, HIGH);
+digitalWrite(In2, LOW);
+analogWrite(EnA, 200);
+delay(2000);
+digitalWrite(In1, LOW);
+digitalWrite(In2, LOW);
+delay(2000);
+
+// Kiểm tra động cơ phải
+Serial.println("Kiểm tra động cơ phải");
+digitalWrite(In3, HIGH);
+digitalWrite(In4, LOW);
+analogWrite(EnB, 200);
+delay(2000);
+digitalWrite(In3, LOW);
+digitalWrite(In4, LOW);
+delay(2000);
+}
+
+Mã này sẽ kiểm tra từng động cơ một cách riêng lẻ. Động cơ trái sẽ quay trong 2 giây, sau đó dừng lại, và sau đó động cơ phải sẽ quay trong 2 giây. Bạn có thể theo dõi kết quả trên Serial Monitor để biết động cơ nào đang được kiểm tra.
+
+Hãy thử mã này và xem liệu cả hai động cơ có hoạt động đúng cách không. Nếu có vấn đề gì, hãy cho tôi biết để tôi có thể giúp bạn thêm!
